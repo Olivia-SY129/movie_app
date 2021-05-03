@@ -7,7 +7,7 @@ function Dogs({name, image}) {
     </div>
 }
 
-const foodILike = [
+const dogILike = [
   {
     name: "Jenny",
     image: 
@@ -30,15 +30,20 @@ const foodILike = [
   },
 ]
 
+function renderDog() {
+  
+}
+
 function App() {
   return (
     <div className="App">
       <h1>First App</h1>
-      {foodILike.map(dog =>
+      {dogILike.map(dog =>
         <Dogs 
           name={dog.name} image = {dog.image} />
         )}
     </div>
+      
   );
 }
 

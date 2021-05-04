@@ -1,0 +1,43 @@
+.movie {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 400px;
+  background-color: aliceblue;
+  box-shadow: 3px, 3px, 3px black;
+  margin-top: 50px;
+}
+
+.movie__posterContainer {
+  width: 140px;
+}
+.movie__poster {
+  width: 100px;
+  position: relative;
+  top: -20px;
+  left: 20px;
+}
+
+.movie__data {
+  width: 260px;
+}
+
+.movie__title {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.movie__year {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.movie__genres {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.movie__summary {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  font-size: 12px;
+}

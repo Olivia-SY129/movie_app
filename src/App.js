@@ -1,52 +1,54 @@
 import React from 'react';
+import axios from 'axios';
+import Movie from './Movie';
+import "./App.css";
 
-function Dogs({name, image}) { 
-  return <div>
-    <h3>I love {name}</h3> 
-    <img src = {image} ></img> 
-    </div>
-}
-
-const dogILike = [
-  {
-    name: "Jenny",
-    image: 
-      "https://www.gannett-cdn.com/presto/2020/02/03/PROC/23928de8-75f4-4cbd-aa93-a6f68ad330f7-20200201-_MS_0622.jpg",
-  },
-  {
-    name: "Roy",
-    image: 
-      "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2016/06/21195710/German-Shepherd-Dog-laying-down-in-the-backyard-500x487.jpeg",
-  },
-  {
-    name: "Coco",
-    image: 
-      "https://i.pinimg.com/originals/a1/5d/02/a15d02fee3f126527b8fe44853bc1932.png",
-  },
-  {
-    name: "Gabriel",
-    image: 
-      "https://www.loveyourdog.com/wp-content/uploads/2019/04/Toy-Poodle-900x500.jpg",
-  },
-]
-
-function renderDog() {
+class App extends React.Component {
+  state = {
+    isLoading: true,
+    movie: []
+  }
   
-}
+  async getMovies() {
+    const {
+      data: {
+        data: { movies }
+      }
+    } = await axios.get("https://yts-proxy.nomadcoders1.now.sh/list_movies.json?sort_by=rating");
+    this.setState({ movies, isLoading: false });
+  }
 
-function App() {
-  return (
-    <div className="App">
-      <h1>First App</h1>
-      {dogILike.map(dog =>
-        <Dogs 
-          name={dog.name} image = {dog.image} />
-        )}
-    </div>
-      
-  );
-}
+  componentDidMount() {
+    this.getMovies();
+  }
 
+  render() {
+    const {isLoading, movies} = this.state;
+    return (
+      <section className = "main">
+        {isLoading ? (
+          <div className="loader">
+            <span className="loader__text">Loading...</span>
+          </div>
+          ) : (
+            <div className="movies">
+              {movies.map(movie => {
+              return <Movie 
+              key = {movie.id} 
+              id = {movie.id} 
+              title = {movie.title} 
+              year = {movie.year} 
+              genres = {movie.genres} 
+              summary = {movie.summary} 
+              poster = {movie.medium_cover_image} />
+              })}
+            </div>
+            )
+        }
+      </section>
+    );
+  }
+}
 
 
 export default App;

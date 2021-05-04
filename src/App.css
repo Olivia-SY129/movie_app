@@ -1,0 +1,16 @@
+html,
+body {
+  background-color: #b5c7c4;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.movies {
+  margin-top: 30px;
+  width: 90%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: space-between;
+}

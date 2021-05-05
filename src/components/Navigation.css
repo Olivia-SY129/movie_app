@@ -1,0 +1,33 @@
+.navigation {
+  position: fixed;
+  top: 50px;
+  left: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 70px;
+  border-radius: 3px;
+  background-color: white;
+  box-shadow: 4px 4px 10px rgb(202, 202, 202);
+}
+
+.navigation a {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px;
+  color: rgb(138, 138, 138);
+  text-decoration: none;
+  border-bottom: solid 1px rgb(243, 243, 243);
+}
+
+.navigation a:last-child {
+  border-bottom: none;
+}
+
+.navigation a:visited {
+  color: rgb(68, 68, 68);
+  text-decoration: none;
+}

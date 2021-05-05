@@ -23,6 +23,8 @@ body {
 
 .movies {
   width: 90vw;
+  margin-top: 50px;
+  margin-left: 70px;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;

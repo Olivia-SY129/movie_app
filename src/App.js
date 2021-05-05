@@ -14,7 +14,7 @@ class App extends React.Component {
       data: {
         data: { movies }
       }
-    } = await axios.get("https://yts-proxy.nomadcoders1.now.sh/list_movies.json?sort_by=rating");
+    } = await axios.get("https://yts-proxy.nomadcoders1.now.sh/list_movies.json?sort_by=download_count");
     this.setState({ movies, isLoading: false });
   }
 
@@ -27,9 +27,11 @@ class App extends React.Component {
     return (
       <section className = "main">
         {isLoading ? (
-          <div className="loader">
-            <span className="loader__text">Loading...</span>
-          </div>
+          <section>
+            <div className="loader">
+              <span className="loader__text">Loading...</span>
+            </div>
+          </section>
           ) : (
             <div className="movies">
               {movies.map(movie => {
@@ -47,7 +49,7 @@ class App extends React.Component {
         }
       </section>
     );
-  }
+  };
 }
 
 

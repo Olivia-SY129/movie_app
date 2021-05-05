@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from "prop-types";
 import "./Movie.css";
 
-function Movie({id, title, year, genres, summary, poster}) {
+function Movie({title, year, genres, summary, poster}) {
     return (
         <div className = "movie">
             <div className="movie__posterContainer">
@@ -12,7 +12,8 @@ function Movie({id, title, year, genres, summary, poster}) {
                 <h4 className="movie__title">{title}</h4>
                 <h5 className="movie__year">{year}</h5>
                 <h5 className="movie__genres">{genres.join(', ')}</h5>
-                <p className="movie__summary">{summary}</p>    
+                <p className="movie__summary">{summary.slice(0, 180)
+                }...</p>    
             </div>
             
         </div>
